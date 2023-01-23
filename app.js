@@ -1,21 +1,19 @@
-console.dir(document);
+const firstParagraph = document.querySelector("p");
 
-// document.body.children[1].children[0].href = "http://www.youtube.com";
+function changeText() {
+  firstParagraph.textContent = "Clicked";
+  console.log("hello");
+}
 
-let anchorEl = document.getElementById("external-link");
-anchorEl.href = "https://io9.com";
+firstParagraph.addEventListener("click", changeText);
 
-anchorEl = document.querySelector("a");
-anchorEl.href = "https://www.udemy.com";
+const inputEl = document.querySelector("input");
 
-// Add an element
-// 1. Create new element
-let newAnchor = document.createElement("a");
-newAnchor.href = "https://www.google.com";
-newAnchor.textContent = "Try Google";
+function retrieveInput(event) {
+  // let enteredText = inputEl.value;
+  let enteredText = event.target.value;
+  console.log(enteredText);
+  console.log(event);
+}
 
-//2) Get access to parent to hold new element
-let firstParagraph = document.querySelector("p");
-
-//3) Insert new element into parent element content
-firstParagraph.append(newAnchor);
+inputEl.addEventListener("input", retrieveInput);
